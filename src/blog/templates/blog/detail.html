@@ -7,7 +7,6 @@
 {% endblock title %}
     
 {% block context %}
-
         
             <!--Blog Title-->
                 <h4 class="text-secondary mb-5 ml-5 mt-5">Blog Details</h4>
@@ -36,4 +35,14 @@
                     {% empty %}
                     <h6 class="text-center p-4 mb-3 comment"> No Comments</h6>
                 {% endfor %}
+
+                <h3 class="border-bottom pb-3 mb-3 mt-5">إضافة تعلق جديد</h3>
+                    <div class="border border-dark p-4 mb-5 mt-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{comment_form.as_p}}
+                    <input class="btn btn-secondary" type="submit" value="Add Comment">
+                </form>
+                </div>
+
 {% endblock context %}

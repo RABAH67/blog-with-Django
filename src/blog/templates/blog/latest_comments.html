@@ -1,0 +1,11 @@
+<ul>
+    {% for comment in comments %}
+    <hr>
+        <a class="bb" href="{% url 'detail' comment.post.id %}">
+            <li>{{comment.body}}</li>
+        </a>
+        <hr>
+        {% empty %}
+        <li>No Comments</li>
+    {% endfor %} 
+</ul>
