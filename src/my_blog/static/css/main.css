@@ -1,0 +1,18 @@
+.post-whith{
+
+    height: 250px;
+}
+
+*{
+    text-decoration: none;
+    list-style: none;
+
+}
+.bb{
+    color: darkgrey;
+}
+
+.bb:hover{
+    color: coral;
+}
+

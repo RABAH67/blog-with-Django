@@ -1,0 +1,7 @@
+<ul>
+    {% for post in posts %}
+        <a class="bb" href="{% url 'detail' post.id %}">
+            <li>{{post.title}}</li>
+        </a>
+    {% endfor %} 
+</ul>
