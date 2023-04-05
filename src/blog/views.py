@@ -3,6 +3,7 @@ from .models import Post ,Comment
 from .forms import NewComment
 from django.contrib import messages
 from django.views import View
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
 
@@ -15,8 +16,19 @@ from django.views import View
 
 def home(request):
     
+    posts = Post.objects.all()
+    paginator = Paginator(posts, 5)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_page)
+    
     context = {
-        'posts':Post.objects.all()
+        'posts':posts,
+        'page':page,
     }
     return render(request, 'blog/index.html',context)
 
