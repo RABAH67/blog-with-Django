@@ -38,7 +38,12 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav mr-auto">
+                        {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href=""> Profile</a></li>
+                        {% else %}
+                        
+                        {% endif %}
+
                         <li class="nav-item"><a class="nav-link" href=""> New Post</a></li>
                     </ul>
                     <ul class="navbar-nav mr-auto">
