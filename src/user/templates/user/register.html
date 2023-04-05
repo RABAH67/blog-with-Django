@@ -1,0 +1,54 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Login
+{% endblock title %}
+    
+{% block context %}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-sm-8 offset-sm-3">
+            <h3 class="text-secondary">Login</h3>
+            <hr>
+            <form method="post" class="shadow p-5" novalidate>
+            {% csrf_token %}
+            
+            {% for fm in form %}
+                {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                <br>
+            {% endfor %}
+                <input type="submit" class="btn btn-secondary" value="Login"><br>
+                <div class="text-center fw-bold text-secondary">
+                    <small style="font-weight: 700;">New User ?<a href="" class="text-dark">
+                        Create account
+                    </a>
+                    </small>
+                </div>
+                
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="alert alert-danger my-3">{{error}}</p>
+                    {% endfor %} 
+                {% endif %}
+                    
+
+                
+                {% if messages %}
+                {% for msg in messages %}
+                    <div role="alert" class="alert alert-{{msg.tags}}">
+                        {{msg}}
+                    </div>
+                {% endfor %}
+                {% endif %}      
+            </form>
+        </div>
+        
+    </div>
+
+</div>
+        
+
+
+{% endblock context %}

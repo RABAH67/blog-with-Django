@@ -1,7 +1,15 @@
 from django.shortcuts import render ,get_object_or_404,redirect
 from .models import Post ,Comment
 from .forms import NewComment
+from django.contrib import messages
+from django.views import View
+
 # Create your views here.
+
+
+
+
+
 
 
 
