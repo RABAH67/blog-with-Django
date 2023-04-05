@@ -44,16 +44,100 @@
             </nav>
             <!--End Navbar-->
 
+            <!--Blog Title-->
+                <h4 class="text-secondary ml-5 mt-5">Blogs</h4>
+            <!--End Blog Title-->
+
+
+          <!--SaidBar-->
+            <section>
+                <div class="container">
+                    <div class="row mt-2">
+                        <div class="col-md-8">
+                            {% block content %}
+
+                            {% endblock content %}
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <h3 class="text-center bg-secondary text-light p-2">Last  Blogs</h3>
+                                    <ul>
+                                        <li><a href="">sdgsdhdfshdf</a></li>
+                                        <li><a href="">sdgsdhdfshdf</a></li>
+                                        <li><a href="">sdgsdhdfshdf</a></li>
+                                        <li><a href="">sdgsdhdfshdf</a></li>
+                                    </ul>
+                            </div>
+                            <div class="card mb-3">
+                                <h3 class="text-center bg-secondary text-light p-2"> Last Comments</h3>
+                                <ul>
+                                    <li><a href="">sdgsdhdfshdf</a></li>
+                                    <li><a href="">sdgsdhdfshdf</a></li>
+                                    <li><a href="">sdgsdhdfshdf</a></li>
+                                    <li><a href="">sdgsdhdfshdf</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+          <!--End SaidBar-->
+
+           
 
 
 
-
-
-
-
-
-
-
+            <!--Footer-->
+            <footer class="bg-secondary">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="card-group mt-3">
+                                <div class="card m-3">
+                                    <h3 class="card-title text-center border-bottom p-2 m-3"> About Me</h3>
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <img src="{% static 'images/mim-logo.png' %}" alt="شعار مدونة" width="100px">
+                                        </div>
+                                        <p>
+                                            Wep Devloper
+                                        </p>
+        
+                                    </div>
+                                </div>
+                                <div class="card m-3">
+                                    <h3 class="card-title text-center border-bottom p-2 m-3">Contact Us</h3>
+                                    <div class="card-body">
+                                        <ul>
+                                            <li><a class="text-dark" href="https://www.python.org/doc/"> Python Documontation</a></li>
+                                            <li><a class="text-dark" href="https://docs.djangoproject.com/en/2.2/">
+                                                    Django Documontation</a></li>
+                                            <li><a class="text-dark" href="https://developer.mozilla.org/"> MDN</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card m-3">
+                                    <h3 class="card-title text-center border-bottom p-2 m-3">  Sosial Media</h3>
+                                    <h4 class="card-body text-center">
+                                        <a class="text-secondary" href=""><box-icon type='logo' name='facebook-circle'></box-icon></a>
+                                        <a class="text-secondary" href=""><box-icon name='twitter' type='logo' ></box-icon></a>
+                                        <a class="text-secondary" href=""><box-icon name='instagram-alt' type='logo' ></box-icon></i></a>
+                                        <a class="text-secondary" href=""><box-icon name='youtube' type='logo' ></box-icon></a>
+                                        <a class="text-secondary" href=""><box-icon name='telegram' type='logo' ></box-icon></a>
+                                        <a class="text-secondary" href=""><box-icon name='linkedin-square' type='logo' ></box-icon></a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-2">
+                        <div class="col-md text-center">
+                            <small class="text-light">&copy;   All Right Conserve {% now 'Y' %}</small>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--End Footer-->
 
 
 
