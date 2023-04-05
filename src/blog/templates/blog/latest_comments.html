@@ -1,5 +1,5 @@
 <ul>
-    {% for comment in comments %}
+    {% for comment in l_comments %}
     <hr>
         <a class="bb" href="{% url 'detail' comment.post.id %}">
             <li>{{comment.body}}</li>

@@ -1,5 +1,5 @@
 <ul>
-    {% for post in posts %}
+    {% for post in l_postes %}
         <a class="bb" href="{% url 'detail' post.id %}">
             <li>{{post.title}}</li>
         </a>
