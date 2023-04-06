@@ -17,6 +17,6 @@ def latest_post():
 def lastest_comments():
     
     context = {
-        'l_comments':Comment.objects.filter(active=True)[0:5]
+        'l_comments':Comment.objects.filter()[0:5]
     }
     return context

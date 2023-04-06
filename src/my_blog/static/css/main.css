@@ -5,10 +5,10 @@
 
 }
 .bb{
-    color: darkgrey;
+    color: rgb(240, 71, 71);
 }
 
 .bb:hover{
-    color: coral;
+    color: rgb(187, 49, 49);
 }
 

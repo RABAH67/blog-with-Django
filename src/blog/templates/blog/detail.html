@@ -46,8 +46,10 @@
           <a type="submit" href="{% url 'dislike' post.id %}" class="mr-2"><box-icon name='dislike' ></box-icon></a>
           {% endif %}
             <small class="muted color-dark m-2">{{post.dislike.count}}</small>
-            
-         <h6 class="text-dark ml-5">{{post.views}} Views</h6>
+            <div class="row">
+                <span class="ml-5"><img src="{% static 'images/eye.png' %}" style="width: 10;" alt=""></span>
+                <h6 class="text-dark m-2">{{post.views}} Views</h6>
+            </div>
         </div>
 
             <h2 class=" mt-5 mb-3">Comments ({{comments.count}})</h2>

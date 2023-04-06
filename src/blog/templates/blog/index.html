@@ -27,7 +27,10 @@
                 <p style="word-wrap: break-word;">{{post.content}}</p>
                 {% endif %}
 
-                <small class="text-dark ml-5">{{post.views}} Views</small>
+                <div class="row">
+                    <span class="ml-5"><img src="{% static 'images/eye.png' %}" style="width: 10;" alt=""></span>
+                    <h6 class="text-dark m-2">{{post.views}} Views</h6>
+                </div>
             </div>
           {% endfor %}      
 
