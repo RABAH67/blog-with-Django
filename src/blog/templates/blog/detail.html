@@ -29,6 +29,26 @@
             </div>
             {% endif %}
 
+            <div class="row mt-5">
+            {% if request.user in post.like.all %}
+            <a type="submit" href="{% url 'like' post.id %}" class="mr-2"><box-icon name='like' type='solid' ></box-icon></a>
+    
+            {% else %}
+            <a type="submit" href="{% url 'like' post.id %}" class="mr-2"><box-icon name='like'></box-icon></a>
+          {% endif %}
+          <small class="muted color-dark m-2">{{post.like.count}}</small>
+
+
+          {% if request.user in post.dislike.all %}
+          <a type="submit" href="{% url 'dislike' post.id %}" class="mr-2"><box-icon name='dislike' type='solid' ></box-icon></a>
+  
+          {% else %}
+          <a type="submit" href="{% url 'dislike' post.id %}" class="mr-2"><box-icon name='dislike' ></box-icon></a>
+          {% endif %}
+            <small class="muted color-dark m-2">{{post.dislike.count}}</small>
+            
+         <h6 class="text-dark ml-5">{{post.views}} Views</h6>
+        </div>
 
             <h2 class=" mt-5 mb-3">Comments ({{comments.count}})</h2>
             <hr>
@@ -44,7 +64,7 @@
                     <h6 class="text-center p-4 mb-3 comment"> No Comments</h6>
                 {% endfor %}
 
-                <h3 class="border-bottom pb-3 mb-3 mt-5">  Add New Comments</h3>
+                <h3 class="border-bottom pb-3 mb-3 mt-5">  Add New Comments <box-icon style="font-size: 1.5rem;" name='message-rounded'></box-icon></h3>
                     <div class="border border-dark p-4 mb-5 mt-4">
                 <form method="POST">
                     {% csrf_token %}
@@ -52,5 +72,10 @@
                     <input class="btn btn-secondary" type="submit" value="Add Comment">
                 </form>
                 </div>
+
+                
+
+
+
 
 {% endblock context %}

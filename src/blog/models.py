@@ -12,6 +12,19 @@ class Post(models.Model):
     post_date = models.DateTimeField(default=timezone.now)
     post_update = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    like = models.ManyToManyField(User,related_name='likes',blank=True)
+    dislike = models.ManyToManyField(User,related_name='dislikes',blank=True)
+    views = models.PositiveIntegerField(default=0)
+    
+    def total_likes(self):
+        
+        return self.likes.count()
+
+    def total_dislike(self):
+        
+        return self.dislike.count()
+
 
     def __str__(self):
         return self.title

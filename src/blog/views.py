@@ -6,6 +6,8 @@ from django.views import View
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin ,UserPassesTestMixin
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -18,7 +20,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin ,UserPassesTestMixin
 
 
 def home(request):
-    
+
     posts = Post.objects.all()
     paginator = Paginator(posts, 5)
     page = request.GET.get('page')
@@ -49,9 +51,10 @@ def about(request):
 
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    comments = post.comments.filter(active=True)
+    comments = post.comments.filter()
     comment_form = NewComment()
-    
+    post.views +=1
+    post.save()
     if request.method == 'POST':
         comment_form = NewComment(data=request.POST)
         if comment_form.is_valid():
@@ -115,3 +118,31 @@ class PostDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
         if self.request.user == post.author:
             return True
         return False
+
+@login_required()
+def like(request,post_id):
+    
+    post = Post.objects.get(pk=post_id)
+
+    if request.user in post.like.all() or post.dislike.all():
+        post.like.remove(request.user)
+        post.dislike.remove(request.user)
+        post.like.add(request.user)
+
+    else:
+        post.like.add(request.user)
+    return redirect('detail', post_id)
+
+@login_required()
+def dislike(request,post_id):
+    
+    post = Post.objects.get(pk=post_id)
+
+    if request.user in post.dislike.all() or post.like.all():
+        post.dislike.remove(request.user)
+        post.like.remove(request.user)
+        post.dislike.add(request.user)
+
+    else:
+        post.dislike.add(request.user)
+    return redirect('detail', post_id)
