@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+
+
+{% block title %}
+Delete Post Confirme
+{% endblock title %}
+{% block context %}    
+<div class="border p-4 mb-5">
+    <legend class="border-bottom pb-1 mb-3"> Delete Post</legend>
+    <form method="POST">
+        {% csrf_token %}
+        <legend class="pb-1 mb-2 mt-2"></legend> Are You shure for delet"{{object.title}}"Post ?</legend>
+        <input class="btn btn-danger mt-5" type="submit" value="Delet">
+        <a class="btn btn-secondary mt-5 back-btn" href="{% url 'detail' object.id %}">Go Back</a>
+    </form>
+</div>
+{% endblock context %}

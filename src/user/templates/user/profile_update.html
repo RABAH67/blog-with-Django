@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Profile edit
+{% endblock title %}
+    
+{% block context %}
+<div class="container">
+    <div class="row my-5">
+        <div class="col-sm-8 offset-sm-3">
+            <h3 class="text-secondary">My Profile</h3>
+            <hr>
+            <form method="post" class="shadow p-5" novalidate>
+            {% csrf_token %}
+            
+            {% for fm in user_form %}
+                {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
+                <br>
+            {% endfor %}
+            
+            {{profile_form}}
+                <input type="submit" class="btn btn-secondary" value="Edit"><br>
+   
+            </form>
+        </div>
+        
+    </div>
+
+</div>
+        
+
+
+{% endblock context %}
